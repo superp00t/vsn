@@ -64,6 +64,14 @@ func (v Version) IsLessThan(v2 Version) bool {
 	return v2.Cmp(v) == -1
 }
 
+func (v Version) IsGreaterThanOrEqualTo(v2 Version) bool {
+	return v2.Cmp(v) == 1 || v2.Cmp(v) == 0
+}
+
+func (v Version) IsLessThanOrEqualTo(v2 Version) bool {
+	return v2.Cmp(v) == -1 || v2.Cmp(v) == 0
+}
+
 func (v Version) IsGreaterThan(v2 Version) bool {
 	return v2.Cmp(v) == 1
 }
