@@ -1,6 +1,5 @@
 package vsn
 
-import "fmt"
 import "testing"
 
 func TestVersion(t *testing.T) {
@@ -13,5 +12,16 @@ func TestVersion(t *testing.T) {
 		"6.0.0",
 	}
 
-	fmt.Println(SortVersions(v1))
+	v1s := SortVersions(v1)
+	if v1s[0] != "7.2.0" {
+		t.Fatal("failed")
+	}
+
+	if Version("3.4").IsLessThan("3.5") == false {
+		t.Fatal("failed")
+	}
+
+	if Version("3.4.5").IsGreaterThan("3.4") == false {
+		t.Fatal("failed")
+	}
 }

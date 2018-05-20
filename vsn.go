@@ -60,6 +60,18 @@ func max(x, y int) int {
 	return x
 }
 
+func (v Version) IsLessThan(v2 Version) bool {
+	return v2.Cmp(v) == -1
+}
+
+func (v Version) IsGreaterThan(v2 Version) bool {
+	return v2.Cmp(v) == 1
+}
+
+func (v Version) IsEqualTo(v2 Version) bool {
+	return v2.Cmp(v) == 0
+}
+
 func (v Version) Cmp(v2 Version) int {
 	s := max(v.Len(), v2.Len())
 	for i := 0; i < s; i++ {
